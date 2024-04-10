@@ -27,3 +27,9 @@ Route::prefix('app')->group(function (){
     Route::get('/fornecedores', [App\Http\Controllers\FornecedoresController::class, 'fornecedores'])->name('app.fornecedores');
     Route::get('/produtos', [App\Http\Controllers\ProdutosController::class, 'produtos'])->name('app.produtos');
 });
+
+Route::fallback(function(){
+    echo 'Está página não existe. Clique para <a href=" '.route('site.principal'). '">Voltar</a>';
+});
+
+Route::get('teste/{p1}/{p2}', [App\Http\Controllers\TesteController::class, 'teste']);
